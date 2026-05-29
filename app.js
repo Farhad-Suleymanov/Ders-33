@@ -10,16 +10,16 @@
 ///////////////////////////
 
 let btn = document.querySelectorAll("button");
-let firstBlue = true;
+function line(event){
+    event.target.style.textDecoration = "line-through";
+}
+function color(event){
+    event.target.style.color = "blue";
+    event.target.removeEventListener("click", color);
+}
 btn.forEach((element) => {
-    element.addEventListener("click", (event) => {
-        event.target.style.textDecoration = "line-through";
-        if(firstBlue){
-            event.target.style.color = "blue";
-            firstBlue = false;
-        }
-
-    });
+    element.addEventListener("click", line);
+    element.addEventListener("click", color);
 });
 
 //////////////////////////////////
